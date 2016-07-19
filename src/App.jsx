@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Toolbar from './Toolbar.jsx';
-import PlaylistContainer from './PlaylistContainer.jsx';
+import BlogListContainer from './BlogListContainer.jsx';
 
 class App extends Component {
   constructor(props){
@@ -8,30 +8,15 @@ class App extends Component {
     super(props);
     // setup the default state for the app
     this.state = {
-      title: 'React Playlist Example'
+      title: 'React Blog Example'
     };
-  }
-
-  componentDidMount(){
-    // make API call .then update state
-    this.setState({
-      videos: [{
-        id: '1akf',
-        title: 'Intro to ReactJS',
-        video_id: '2g811Eo7K8U'
-      }, {
-        id: '2adc',
-        title: 'Intro to AngularJS',
-        video_id: '2g811Eo7K8U'
-      }]
-    });
   }
 
   render() {
     return (
       <div className='app-container'>
         <Toolbar title={this.state.title} />
-        <PlaylistContainer />
+        <BlogListContainer />
       </div>
     );
   }
