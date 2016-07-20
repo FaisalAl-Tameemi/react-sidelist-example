@@ -5,23 +5,20 @@ class BlogList extends Component {
     super(props);
   }
 
-  _isItemSelected(item){
-    return (this.props.selectedItem && item.id == this.props.selectedItem.id);
-  }
-
-  render() {
+  render(){
     return (
       <ul className='rp-bloglist'>
-        {/*<p className='rp-bloglist-title'>Blog List:</p>*/}
         {
           this.props.itemsList.map((item) => {
             return (
               <li
                 key={item.id}
-                className={`rp-bloglist-item ${this._isItemSelected(item) ? 'selected' : ''}`}
-                onClick={() => this.props.onItemSelect(item)}
+                className='rp-bloglist-item'
               >
                 { item.title }
+                <button onClick={(ev) => this.props.onItemDelete(item)}>
+                  delete
+                </button>
               </li>
             )
           })

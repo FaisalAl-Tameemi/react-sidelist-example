@@ -2,14 +2,6 @@ import React, {Component} from 'react';
 import BlogList from './BlogList.jsx';
 import BlogContent from './BlogContent.jsx';
 
-const opts = {
-  height: '100%',
-  width: '100%',
-  playerVars: {
-    autoplay: 1
-  }
-};
-
 class BlogListContainer extends Component {
   constructor(props){
     // pass the props to React.Component (i.e. the parent class of this component)
@@ -36,15 +28,27 @@ class BlogListContainer extends Component {
       text: 'Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.'
     }];
     // make API call .then update state
-    this.setState({
-      items: items_to_show,
-      selected_item: items_to_show[0]
-    });
+    setTimeout(() => {
+      this.setState({
+        items: items_to_show,
+        selected_item: items_to_show[0]
+      });
+    }, 2000);
   }
 
   _onItemSelect(item){
     this.setState({
       selected_item: item
+    });
+  }
+
+  _onItemDelete(item){
+    const new_items_list = this.state.items.filter(function(current){
+      return current.id !== item.id;
+    });
+    this.setState({
+      items: new_items_list,
+      selected_item: new_items_list[0]
     });
   }
 
@@ -56,6 +60,7 @@ class BlogListContainer extends Component {
             itemsList={this.state.items}
             selectedItem={this.state.selected_item}
             onItemSelect={(item) => this._onItemSelect(item)}
+            onItemDelete={(item) => this._onItemDelete(item)}
           />
         </div>
         {

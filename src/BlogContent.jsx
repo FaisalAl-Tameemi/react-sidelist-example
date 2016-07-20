@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class App extends Component {
+class BlogContent extends Component {
   render() {
     const {title, text} = this.props;
     return (
@@ -16,4 +16,9 @@ class App extends Component {
   }
 }
 
-export default App;
+BlogContent.propTypes = {
+  title:      React.PropTypes.string.isRequired,
+  text:      React.PropTypes.string.isRequired,
+};
+
+export default BlogContent;
