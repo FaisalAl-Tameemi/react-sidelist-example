@@ -8,7 +8,7 @@ class App extends Component {
     super(props);
     // setup the default state for the app
     this.state = {
-      title: "Shannon's Puppies"
+      title: "React Blog List"
     };
   }
 

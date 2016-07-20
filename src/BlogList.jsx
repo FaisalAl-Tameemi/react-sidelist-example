@@ -14,11 +14,9 @@ class BlogList extends Component {
               <li
                 key={item.id}
                 className='rp-bloglist-item'
+                onClick={() => this.props.onItemSelect(item)}
               >
                 { item.title }
-                <button onClick={(ev) => this.props.onItemDelete(item)}>
-                  delete
-                </button>
               </li>
             )
           })

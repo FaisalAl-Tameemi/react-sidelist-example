@@ -14,6 +14,8 @@ class BlogListContainer extends Component {
   }
 
   componentDidMount(){
+    // define data, could otherwise do this from file
+    // but would actually be a DB in real life
     const items_to_show = [{
       id: '1akf',
       title: 'Intro to ReactJS',
@@ -27,7 +29,7 @@ class BlogListContainer extends Component {
       title: 'Intro to CSS3',
       text: 'Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.'
     }];
-    // make API call .then update state
+    // make API call .then update state, simulate below
     setTimeout(() => {
       this.setState({
         items: items_to_show,
@@ -53,22 +55,36 @@ class BlogListContainer extends Component {
   }
 
   render() {
+    // define a content block
+    const content = (
+      <div className='rp-content-container'>
+        <BlogContent {...this.state.selected_item} />
+      </div>
+    );
+    // define loading block
+    const loading = (
+      <div className='rp-loading'>
+        Loading...
+      </div>
+    );
+    // define list block
+    const list = (
+      <div className='rp-bloglist-container'>
+        <BlogList
+          itemsList={this.state.items}
+          selectedItem={this.state.selected_item}
+          onItemSelect={(item) => this._onItemSelect(item)}
+          onItemDelete={(item) => this._onItemDelete(item)}
+        />
+      </div>
+    );
+    // this is what actually shows on the page
+    // below is where all the constants define above are being used
+    // that's done simply for cleaner code, you could otherwise do it all below
     return (
       <div className='rp-full-layout'>
-        <div className='rp-bloglist-container'>
-          <BlogList
-            itemsList={this.state.items}
-            selectedItem={this.state.selected_item}
-            onItemSelect={(item) => this._onItemSelect(item)}
-            onItemDelete={(item) => this._onItemDelete(item)}
-          />
-        </div>
-        {
-          this.state.selected_item &&
-            <div className='rp-content-container'>
-              <BlogContent {...this.state.selected_item} />
-            </div>
-        }
+        { list }
+        { this.state.selected_item ? content : loading }
       </div>
     );
   }
