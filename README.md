@@ -1,9 +1,6 @@
 ## The BlogList Example
 
 
-Now that we know the learning outcomes, let's go through an example that will help us get a better grasp of what we're how to apply the points mentioned above.
-
-
 Our goal is to build a blog reader which looks like the following:
 
 
