@@ -26,4 +26,9 @@ class BlogList extends Component {
   }
 }
 
+BlogList.propTypes = {
+  itemsList: React.PropTypes.any.isRequired,
+  onItemSelect: React.PropTypes.func.isRequired,
+};
+
 export default BlogList;

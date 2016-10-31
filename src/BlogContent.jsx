@@ -17,8 +17,8 @@ class BlogContent extends Component {
 }
 
 BlogContent.propTypes = {
-  title:      React.PropTypes.string.isRequired,
-  text:      React.PropTypes.string.isRequired,
+  title: React.PropTypes.string.isRequired,
+  text: React.PropTypes.string.isRequired,
 };
 
 export default BlogContent;
