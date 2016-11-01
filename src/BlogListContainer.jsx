@@ -35,7 +35,7 @@ class BlogListContainer extends Component {
         items: items_to_show,
         selected_item: items_to_show[0]
       });
-    }, 2000);
+    }, 100);
   }
 
   _onItemSelect(item){
@@ -45,9 +45,9 @@ class BlogListContainer extends Component {
   }
 
   _onItemDelete(item){
-    const new_items_list = this.state.items.filter(function(current){
-      return current.id !== item.id;
-    });
+    // filter the items list to ignore the deleted item
+    const new_items_list = this.state.items.filter((current) => current.id !== item.id);
+    // update the state with the filtered list of items
     this.setState({
       items: new_items_list,
       selected_item: new_items_list[0]

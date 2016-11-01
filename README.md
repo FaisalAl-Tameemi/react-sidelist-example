@@ -183,8 +183,11 @@ A functional component that simply renders the item that is passed to it as a pr
 
 ## Links & Resources
 
-- [Github Repo](https://github.com/FaisalAl-Tameemi/react-sidelist-example)
+- [Github Repo // Code From Class](https://github.com/FaisalAl-Tameemi/react-sidelist-example)
+- [ReactJS Brief Intro](https://faisalaltameemi.gitbooks.io/intro-to-reactjs/content/chapter_1/)
 - [createClass vs extends Component](https://toddmotto.com/react-create-class-versus-component/)
+- [Typechecking Props](https://facebook.github.io/react/docs/typechecking-with-proptypes.html)
+- [JSX in Depth](https://facebook.github.io/react/docs/jsx-in-depth.html)
 
 
 <!-- IMAGES -->
