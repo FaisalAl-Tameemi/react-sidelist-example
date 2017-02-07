@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 
 class BlogContent extends Component {
   render() {
-    const {title, text} = this.props;
+    // const {title, text} = this.props;
+		const title = this.props.title;
+		const text = this.props.text;
     return (
       <div className='rp-full-layout'>
         <h3 className='rp-content-title'>
@@ -16,9 +18,9 @@ class BlogContent extends Component {
   }
 }
 
-BlogContent.propTypes = {
-  title: React.PropTypes.string.isRequired,
-  text: React.PropTypes.string.isRequired,
-};
+// BlogContent.propTypes = {
+//   title: React.PropTypes.string.isRequired,
+//   text: React.PropTypes.string.isRequired,
+// };
 
 export default BlogContent;

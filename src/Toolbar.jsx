@@ -6,6 +6,7 @@ class Toolbar extends Component {
     const { title } = this.props;
     // in ES5
     // var title = this.props.title;
+
     return (
       <div className='rp-main-toolbar'>
         <h1 className='rp-toolbar-title'>
